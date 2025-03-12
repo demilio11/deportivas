@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "805991253367",
+    "firebase_url": "https://deporscraping-default-rtdb.firebaseio.com",
+    "project_id": "deporscraping",
+    "storage_bucket": "deporscraping.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805991253367:android:38bd90f054665e6d2c0d72",
+        "android_client_info": {
+          "package_name": "com.example.deportivas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfhBt_IznBU65tUpmh5NzjjX77WP6dXkA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
