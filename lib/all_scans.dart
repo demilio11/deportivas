@@ -1,3 +1,4 @@
+import 'package:deportivas/filas.dart';
 import 'package:deportivas/selectores.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class AllScans extends StatefulWidget {
 class _AllScansState extends State<AllScans> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.black, // Fondo negro
       body: Padding(
         padding: EdgeInsets.only(top: 16.0, right: 16.0),
@@ -25,12 +26,26 @@ class _AllScansState extends State<AllScans> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end, // Alinea el contenido al principio
                 children: [
+                  SelectorSitio(
+                    onSelectedChange: () {
+                      setState(() {
+                        // Aquí puedes actualizar cualquier estado o valor que quieras en LastScan
+                      });
+                    },
+                  ),
+                  const SizedBox(width: 30),
                   AllOrOne(),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   // SelectorWidget se mantiene alineado a la derecha
-                  SelectorWidget(),
+                  SelectorWidget(
+                    onSelectedChange: () {
+                      setState(() {});
+                    },
+                  ),
                 ],
               ),
+              FilaAllTitlesWidget(),
+              FilaFullListWidget()
             ],
           ),
         ),

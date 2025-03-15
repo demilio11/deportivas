@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:deportivas/all_scans.dart';
+import 'package:deportivas/auxiliares.dart';
 import 'package:deportivas/firebase_options.dart';
 import 'package:deportivas/globales.dart';
 import 'package:deportivas/last_scan.dart';
@@ -47,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
     estadoPrincipal = () {
       setState(() {});
     };
+    pickData();
   }
 
   @override

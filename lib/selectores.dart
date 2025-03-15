@@ -3,8 +3,8 @@ import 'package:deportivas/globales.dart';
 import 'package:flutter/material.dart';
 
 class SelectorWidget extends StatefulWidget {
-  const SelectorWidget({super.key});
-
+  const SelectorWidget({super.key, required this.onSelectedChange});
+  final VoidCallback onSelectedChange;
   @override
   _SelectorWidgetState createState() => _SelectorWidgetState();
 }
@@ -37,7 +37,8 @@ class _SelectorWidgetState extends State<SelectorWidget> {
               onChanged: (String? newValue) {
                 setState(() {
                   selectedCountry = newValue!;
-                  pais = newValue;
+                  paisSeleccionado = newValue;
+                  widget.onSelectedChange();
                 });
               },
               items: paises.map<DropdownMenuItem<String>>((String value) {
@@ -70,6 +71,7 @@ class _SelectorWidgetState extends State<SelectorWidget> {
                 setState(() {
                   selectedLeague = newValue!;
                   liga = newValue;
+                  widget.onSelectedChange();
                 });
               },
               items: ligas[selectedCountry]!.map<DropdownMenuItem<String>>((String value) {
@@ -165,6 +167,50 @@ class _AllOrOneState extends State<AllOrOne> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class SelectorSitio extends StatefulWidget {
+  const SelectorSitio({super.key, required this.onSelectedChange});
+  final VoidCallback onSelectedChange;
+  @override
+  State<SelectorSitio> createState() => _DropdownWidgetState();
+}
+
+class _DropdownWidgetState extends State<SelectorSitio> {
+  String dropdownValue = 'Bet365'; // Valor inicial
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      style: const TextStyle(
+        color: blanco,
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+      dropdownColor: negro,
+      onChanged: (String? newValue) {
+        setState(() {
+          dropdownValue = newValue!;
+          sitio = newValue;
+          widget.onSelectedChange();
+        });
+      },
+      items: <String>['Bet365', 'Pinnacle'].map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(
+            value,
+            style: const TextStyle(
+              color: blanco,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        );
+      }).toList(),
     );
   }
 }

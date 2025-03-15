@@ -12,10 +12,10 @@ class LastScan extends StatefulWidget {
 class _LastScanState extends State<LastScan> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.black, // Fondo negro
       body: Padding(
-        padding: EdgeInsets.only(top: 16.0, right: 16.0),
+        padding: const EdgeInsets.only(top: 16.0, right: 16.0),
         child: Align(
           alignment: Alignment.topCenter, // Centrado horizontalmente
           child: Column(
@@ -26,14 +26,18 @@ class _LastScanState extends State<LastScan> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end, // Alinea el contenido al principio
                 children: [
-                  AllOrOne(),
-                  SizedBox(width: 20),
+                  const AllOrOne(),
+                  const SizedBox(width: 20),
                   // SelectorWidget se mantiene alineado a la derecha
-                  SelectorWidget(),
+                  SelectorWidget(
+                    onSelectedChange: () {
+                      setState(() {});
+                    },
+                  ),
                 ],
               ),
-              FilaTitlesWidget(),
-              FilaListWidget()
+              const FilaTitlesWidget(),
+              const FilaListWidget()
             ],
           ),
         ),
