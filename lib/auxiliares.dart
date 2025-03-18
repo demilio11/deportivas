@@ -16,25 +16,8 @@ Future pickData() async {
                 final tipoLinea = tipo.key; // "Over-Under"
                 for (var linea in tipo.children) {
                   final valorLinea = linea.key; // "+2,25"
-                  String? pinnacleLastDataEq1 = linea.child('Pinnacle/1/-1').value != null ? linea.child('Pinnacle/1/-1').value as String : "";
-                  String? bet365LastDataEq1 = linea.child('Bet365/1/-1').value != null ? linea.child('Bet365/1/-1').value as String : "";
-                                    String? pinnacleLastDataEq2 = linea.child('Pinnacle/2/-1').value != null ? linea.child('Pinnacle/2/-1').value as String : "";
-                  String? bet365LastDataEq2 = linea.child('Bet365/2/-1').value != null ? linea.child('Bet365/2/-1').value as String : "";
-
-                  if (pinnacleLastDataEq1 != "" || bet365LastDataEq1 != "") {
-                    // Crear la fila con los datos obtenidos
-                    FilaSimple fila = FilaSimple(
-                      fecha: fecha.key!.substring(0, fecha.key!.length - 2),
-                      hora: hora.key!,
-                      local: equipoLocal!,
-                      visitante: equipoVisitante!,
-                      tipo: tipoLinea!,
-                      linea: double.tryParse(valorLinea!) ?? 0,
-                      bet365: bet365LastDataEq1+bet365LastDataEq2,
-                      pinnacle: pinnacleLastDataEq1+pinnacleLastDataEq2,
-                    );
                     // Agregar a la lista de filas
-                    filasSimples[pais.key]!["Copa Argentina"]?.add(fila);
+
                   }
                   String hs48 = "", hs36 = "", hs24 = "", hs20 = "", hs16 = "", hs12 = "", hs8 = "", hs4 = "", hs2 = "", hs1 = "", mins30 = "";
 

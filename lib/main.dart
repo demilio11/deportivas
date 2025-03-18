@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
     estadoPrincipal = () {
       setState(() {});
     };
-    pickData();
+    //pickData();
   }
 
   @override
